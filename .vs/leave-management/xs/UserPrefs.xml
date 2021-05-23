@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{4234F173-AD8E-49A2-884A-919E1E5CD952}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
+  <MonoDevelop.Ide.ItemProperties.leave-management PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Startup.cs">
+    <Files>
+      <File FileName="Mappings/AutoMapper.cs" Line="19" Column="10" />
+      <File FileName="Startup.cs" Line="40" Column="89" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="leave-management" expanded="True">
+            <Node name="leave-management" expanded="True">
+              <Node name="Mappings" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Views" expanded="True" />
+              <Node name="Startup.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
