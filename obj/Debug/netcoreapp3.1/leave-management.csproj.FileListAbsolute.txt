@@ -454,3 +454,4 @@
 /Users/cahitkarakas/CSarpProjects/leave-management/obj/Debug/netcoreapp3.1/Razor/Views/LeaveTypes/Create.cshtml.g.cs
 /Users/cahitkarakas/CSarpProjects/leave-management/obj/Debug/netcoreapp3.1/Razor/Views/LeaveTypes/Edit.cshtml.g.cs
 /Users/cahitkarakas/CSarpProjects/leave-management/obj/Debug/netcoreapp3.1/Razor/Views/LeaveTypes/Details.cshtml.g.cs
+/Users/cahitkarakas/CSarpProjects/leave-management/obj/Debug/netcoreapp3.1/Razor/Views/LeaveTypes/Delete.cshtml.g.cs

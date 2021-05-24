@@ -107,7 +107,7 @@ namespace leave_management.Controllers
                 }
                 var leaveType = _mapper.Map<LeaveType>(model);
                 var isSuccess = _repo.Update(leaveType);
-                // leaveType.DateCreated = DateTime.Now;
+                
                 if (!isSuccess)
                 {
                     ModelState.AddModelError("", "Something went wrong..."); 
@@ -125,23 +125,59 @@ namespace leave_management.Controllers
         // GET: LeaveTypes/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var leavetype = _repo.FindById(id);
+            if (leavetype == null)
+            {
+                return NotFound(); 
+            }
+
+            var isSuccess = _repo.Delete(leavetype);
+
+            if (!isSuccess)
+            {
+                return BadRequest(); 
+            }
+            return RedirectToAction(nameof(Index)); 
+
+            // originally i used the following code but for convenience applying above code 
+            //if (!_repo.IsPresent(id))
+            //{
+            //    return NotFound();
+            //}
+
+            //var leavetype = _repo.FindById(id);
+            //var model = _mapper.Map<LeaveTypeVM>(leavetype);
+
+            //return View(model);
         }
 
         // POST: LeaveTypes/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, LeaveTypeVM model)
         {
             try
             {
                 // TODO: Add delete logic here
 
+                var leavetype = _repo.FindById(id);
+                if (leavetype == null)
+                {
+                    return NotFound(); 
+                }
+
+                var isSuccess = _repo.Delete(leavetype);
+
+                if (!isSuccess)
+                {
+                    return View(model); 
+                }
+
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                return View(model);
             }
         }
     }
