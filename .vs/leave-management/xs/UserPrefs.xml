@@ -5,7 +5,7 @@
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="leave-management" expanded="True">
-            <Node name="leave-management" expanded="True" />
+            <Node name="leave-management" expanded="True" selected="True" />
           </Node>
         </State>
       </Pad>
