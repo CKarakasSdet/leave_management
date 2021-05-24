@@ -1,11 +1,10 @@
 ﻿<Properties StartupConfiguration="{4234F173-AD8E-49A2-884A-919E1E5CD952}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
   <MonoDevelop.Ide.ItemProperties.leave-management PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Views/LeaveTypes/Edit.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Views/LeaveTypes/Details.cshtml">
     <Files>
-      <File FileName="Controllers/LeaveTypesController.cs" Line="86" Column="32" />
+      <File FileName="Controllers/LeaveTypesController.cs" Line="40" Column="1" />
       <File FileName="Repository/LeaveTypeRepository.cs" Line="53" Column="29" />
-      <File FileName="Views/LeaveTypes/Index.cshtml" Line="1" Column="1" />
-      <File FileName="Views/LeaveTypes/Edit.cshtml" Line="1" Column="1" />
+      <File FileName="Views/LeaveTypes/Details.cshtml" Line="1" Column="2" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,7 +16,7 @@
               <Node name="Repository" expanded="True" />
               <Node name="Views" expanded="True">
                 <Node name="LeaveTypes" expanded="True">
-                  <Node name="Edit.cshtml" selected="True" />
+                  <Node name="Details.cshtml" selected="True" />
                 </Node>
               </Node>
             </Node>
