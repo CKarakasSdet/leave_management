@@ -1,25 +1,11 @@
 ﻿<Properties StartupConfiguration="{4234F173-AD8E-49A2-884A-919E1E5CD952}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
-  <MonoDevelop.Ide.ItemProperties.leave-management PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Views/LeaveTypes/Create.cshtml">
-    <Files>
-      <File FileName="wwwroot/js/site.js" Line="8" Column="4" />
-      <File FileName="Views/LeaveTypes/Create.cshtml" Line="23" Column="48" />
-    </Files>
+  <MonoDevelop.Ide.ItemProperties.leave-management PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="leave-management" expanded="True">
-            <Node name="leave-management" expanded="True">
-              <Node name="Views" expanded="True">
-                <Node name="LeaveTypes" expanded="True">
-                  <Node name="Create.cshtml" selected="True" />
-                </Node>
-                <Node name="Shared" expanded="True" />
-              </Node>
-              <Node name="wwwroot" expanded="True">
-                <Node name="js" expanded="True" />
-              </Node>
-            </Node>
+            <Node name="leave-management" expanded="True" />
           </Node>
         </State>
       </Pad>
