@@ -4,10 +4,11 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Leave Types</h1>
+<hr /> 
 
 <p>
-    <a asp-action="Create" class="btn btn-success" > <i class="fa fa-plus" aria-hidden="true"> </i>Create New</a>
+    <a asp-action="Create" class="btn btn-primary" > <i class="fa fa-plus" aria-hidden="true"></i>  Create New</a>
 </p>
 
 <table id="tblData" class="table">
@@ -19,7 +20,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.DateCreated)
             </th>
-            <th>Actions</th>
+            <th>
+            Actions
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -33,15 +36,15 @@
             </td>
             <td>
                 <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.Id">
-                    <i class="fa fa-info-pencil" aria-hidden="true"></i>
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
                 </a>
 
-                <a asp-action="Details" class="btn btn-info" asp-route-id="@item.Id">      
-                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.Id">      
+                    <i class="fa fa-info-circle" aria-hidden="true"></i> 
                 </a>
 
                 <a asp-action="Delete" class="btn btn-danger"  asp-route-id="@item.Id" onclick="return confirm('Are you sure you want to delete this record?')">                   
-                    <i class="fa fa-info-trash" aria-hidden="true"></i>
+                    <i class="fa fa-trash" aria-hidden="true"></i>
                 </a>
 
 
@@ -54,8 +57,7 @@
 
 @section Scripts{
 <script>
-
-
+   
 </script>
 
 }
