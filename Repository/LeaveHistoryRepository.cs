@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using leave_management.Contracts;
 using leave_management.Data;
 
@@ -34,6 +35,12 @@ namespace leave_management.Repository
         public LeaveHistory FindById(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public bool IsPresent(int id)
+        {
+            var present = _db.LeaveHistories.Any(q => q.Id == id);
+            return present;
         }
 
         public bool Save()

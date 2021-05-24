@@ -10,6 +10,8 @@ namespace leave_management.Contracts
 
         T FindById(int id);
 
+        bool IsPresent(int id);
+
         bool Create(T entity);
 
         bool Update(T entity);

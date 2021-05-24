@@ -47,6 +47,12 @@ namespace leave_management.Repository
             throw new NotImplementedException();
         }
 
+        public bool IsPresent(int id)
+        {
+            var present = _db.LeaveTypes.Any(q => q.Id == id);
+            return present; 
+        }
+
         public bool Save()
         {
             var changes = _db.SaveChanges();
