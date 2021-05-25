@@ -1,22 +1,17 @@
 ﻿<Properties StartupConfiguration="{4234F173-AD8E-49A2-884A-919E1E5CD952}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
   <MonoDevelop.Ide.ItemProperties.leave-management PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Shared/_LoginPartial.cshtml">
-    <Files>
-      <File FileName="Views/Shared/_LoginPartial.cshtml" Line="1" Column="1" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="leave-management" expanded="True">
             <Node name="leave-management" expanded="True">
-              <Node name="Areas" expanded="True">
-                <Node name="Identity" expanded="True" />
+              <Node name="Areas" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="LeaveTypesController.cs" selected="True" />
               </Node>
-              <Node name="Data" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="Shared" expanded="True">
-                  <Node name="_LoginPartial.cshtml" selected="True" />
-                </Node>
+                <Node name="Shared" expanded="True" />
               </Node>
             </Node>
           </Node>
