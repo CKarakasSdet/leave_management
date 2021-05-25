@@ -7942,6 +7942,7 @@
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 5.0.6",
       "Microsoft.AspNetCore.Identity.UI >= 5.0.6",
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 5.0.6",
+      "Microsoft.EntityFrameworkCore.Design >= 5.0.6",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.6",
       "Microsoft.EntityFrameworkCore.Sqlite >= 5.0.6",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.6",
@@ -7961,7 +7962,7 @@
       "outputPath": "/Users/cahitkarakas/CSarpProjects/leave-management/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/cahitkarakas/.config/NuGet/NuGet.Config"
+        "/Users/cahitkarakas/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -8006,6 +8007,12 @@
             "version": "[5.0.6, )"
           },
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
+            "target": "Package",
+            "version": "[5.0.6, )"
+          },
+          "Microsoft.EntityFrameworkCore.Design": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
             "target": "Package",
             "version": "[5.0.6, )"
           },
