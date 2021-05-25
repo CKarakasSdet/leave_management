@@ -1,6 +1,14 @@
 ﻿<Properties StartupConfiguration="{4234F173-AD8E-49A2-884A-919E1E5CD952}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
   <MonoDevelop.Ide.ItemProperties.leave-management PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Areas/Identity/IdentityHostingStartup.cs">
+    <Files>
+      <File FileName="Areas/Identity/Pages/Account/Register.cshtml" Line="67" Column="25" />
+      <File FileName="Areas/Identity/Pages/Account/Register.cshtml.cs" Line="69" Column="23" />
+      <File FileName="Data/Employee.cs" Line="24" Column="1" />
+      <File FileName="Program.cs" Line="16" Column="1" />
+      <File FileName="Startup.cs" Line="45" Column="65" />
+      <File FileName="Areas/Identity/IdentityHostingStartup.cs" Line="1" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
@@ -8,13 +16,10 @@
             <Node name="leave-management" expanded="True">
               <Node name="Areas" expanded="True">
                 <Node name="Identity" expanded="True">
-                  <Node name="Data" expanded="True" />
-                  <Node name="Pages" expanded="True">
-                    <Node name="Account" expanded="True" />
-                  </Node>
                   <Node name="IdentityHostingStartup.cs" selected="True" />
                 </Node>
               </Node>
+              <Node name="Data" expanded="True" />
             </Node>
           </Node>
         </State>

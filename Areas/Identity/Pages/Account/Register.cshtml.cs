@@ -36,7 +36,7 @@ namespace leave_management.Areas.Identity.Pages.Account
             _emailSender = emailSender;
         }
 
-        [BindProperty]
+        [BindProperty] // ensures the visibility of the property 
         public InputModel Input { get; set; }
 
         public string ReturnUrl { get; set; }
@@ -47,7 +47,7 @@ namespace leave_management.Areas.Identity.Pages.Account
         {
             [Required]
             [EmailAddress]
-            [Display(Name = "Email")]
+            [Display(Name = "Email Address")]
             public string Email { get; set; }
 
             [Required]
@@ -60,6 +60,19 @@ namespace leave_management.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            [Required]
+            [DataType(DataType.Text)]
+            [Display(Name = "First Name")]
+            public string Firstname { get; set; }
+
+            [Required]
+            [DataType(DataType.Text)]
+            [Display(Name = "Last Name")]
+            public string Lastname { get; set; }
+
+
+
         }
 
         public async Task OnGetAsync(string returnUrl = null)
