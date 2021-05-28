@@ -7962,7 +7962,7 @@
       "outputPath": "/Users/cahitkarakas/CSarpProjects/leave-management/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/cahitkarakas/.config/NuGet/NuGet.Config"
+        "/Users/cahitkarakas/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
