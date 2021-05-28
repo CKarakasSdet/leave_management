@@ -1,17 +1,14 @@
 @model leave_management.Models.LeaveTypeVM 
 
 @{
-    ViewData["Title"] = "Edit"; 
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
 }
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
-</head>
-<body>
+<h1>Edit</h1>
+
+<title>Edit</title>
 
 <hr />
 <div class="row">
@@ -45,5 +42,4 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-</body>
-</html>
+

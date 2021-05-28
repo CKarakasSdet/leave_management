@@ -14,7 +14,7 @@ namespace leave_management.Models
 
         [Required]
         [Display(Name = "Default Number of Days")]
-        [Range(1 , 31 , ErrorMessage = "Please enter a number less than 31. If you need more days, please consult with your supervisor.")]
+        [Range(1 , 31 , ErrorMessage = "Please enter a number less than 31.")]
         public int DefaultDays { get; set; }
 
         [Display(Name="Date Created")]
