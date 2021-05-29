@@ -34,4 +34,10 @@ namespace leave_management.Models
 
 
     }
+
+    public class CreateLeaveAllocationVM
+    {
+        public int NumberUpdated { get; set; }
+        public List<LeaveTypeVM> LeaveTypes { get; set; }
+    }
 }

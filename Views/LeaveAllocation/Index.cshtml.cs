@@ -11,9 +11,9 @@ namespace leave_management.Views.LeaveAllocations
 {
     public class IndexModel : PageModel
     {
-        private readonly leave_management.Data.ApplicationDbContext _context;
+        private readonly Data.ApplicationDbContext _context;
 
-        public IndexModel(leave_management.Data.ApplicationDbContext context)
+        public IndexModel(Data.ApplicationDbContext context)
         {
             _context = context;
         }
