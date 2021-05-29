@@ -25,5 +25,9 @@ bld/
 # OS related
 .DS_Store
 
+.vs/
+
+obj/
+
 
 
