@@ -25,7 +25,7 @@ bld/
 # OS related
 .DS_Store
 
-.vs/
+.vs/leave-management/xs/UserPrefs.xml
 
 obj/
 
