@@ -7,6 +7,7 @@ using leave_management.Contracts;
 using leave_management.Data;
 using leave_management.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -75,6 +76,44 @@ namespace leave_management.Controllers
             var employees = _userManager.GetUsersInRoleAsync("Employee").Result;
             var model = _mapper.Map<List<EmployeeVM>>(employees);
             return View(model); 
+        }
+
+        public ActionResult Details(string id)
+        {
+            
+            // following is pretty much same as above, but now in one line 
+            var employee = _mapper.Map<EmployeeVM>(_userManager.FindByIdAsync(id).Result);            
+            var allocations = _mapper.Map<List<LeaveAllocationVM>>( _leaveallocationrepo.GetLeaveAllocationsByEmployee(id));
+            var model = new ViewAllocationsVM
+            {
+                Employee = employee,
+                leaveAllocations = allocations 
+            };
+            return View(model); 
+        }
+
+        public ActionResult Edit(int id) {
+
+            var leaveallocation = _leaveallocationrepo.FindById(id);
+            var model = _mapper.Map<EditLeaveAllocationVM>(leaveallocation); 
+            return View(model); 
+        }
+
+        [HttpPost]
+        //[ValidateAntiForgeryToken]
+
+        public ActionResult Edit(string id, IFormCollection collection)
+        {
+            try
+            {
+                return RedirectToAction(nameof(Index)); 
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message); 
+            }
+
+            return View(); 
         }
 
     }

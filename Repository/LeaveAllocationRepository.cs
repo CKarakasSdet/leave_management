@@ -40,7 +40,7 @@ namespace leave_management.Repository
         {
             var LeaveAllocations = _db.LeaveAllocations
                 .Include(q => q.LeaveType)
-                .Include(q => q.LeaveType)
+                
                 .ToList();
             return LeaveAllocations; 
         }
@@ -56,7 +56,11 @@ namespace leave_management.Repository
 
         public ICollection<LeaveAllocation> GetLeaveAllocationsByEmployee(string id)
         {
-            throw new NotImplementedException();
+            var period = DateTime.Now.Year;
+            Console.WriteLine("GetLeaveAllocationsByEmployee(string id)" + id);
+            return FindAll().
+                    Where(q => q.EmployeeId == id && q.Period == period)
+                    .ToList(); 
         }
 
         public bool IsPresent(int id)
