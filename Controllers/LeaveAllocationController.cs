@@ -100,20 +100,33 @@ namespace leave_management.Controllers
         }
 
         [HttpPost]
-        //[ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]
 
-        public ActionResult Edit(string id, IFormCollection collection)
+        public ActionResult Edit(EditLeaveAllocationVM model)
         {
             try
             {
-                return RedirectToAction(nameof(Index)); 
+                if (!ModelState.IsValid)
+                {
+                    return View(model); 
+                }
+                var record = _leaveallocationrepo.FindById(model.Id);
+                record.NumberOfDays = model.NumberOfDays; 
+                var isSuccess = _leaveallocationrepo.Update(record);
+                if (!isSuccess)
+                {
+                    ModelState.AddModelError("", "Error while saving...");
+                    return View(model); 
+                }
+
+                return RedirectToAction(nameof(Details), new {id = model.EmployeeId }); 
             }
-            catch (Exception ex)
+            catch 
             {
-                Console.WriteLine(ex.Message); 
+                return View(model);
             }
 
-            return View(); 
+            
         }
 
     }

@@ -44,6 +44,8 @@ namespace leave_management.Models
 
         public EmployeeVM Employee { get; set; }
 
+        public string EmployeeId { get; set; }
+
         public int NumberOfDays { get; set; }
 
         public LeaveTypeVM LeaveType { get; set; }
