@@ -36,5 +36,6 @@
     <Folder Include="Views\LeaveTypes\" />
     <Folder Include="wwwroot\css\font-awesome-4.7.0\" />
     <Folder Include="Tests\" />
+    <Folder Include="Views\LeaveRequest\" />
   </ItemGroup>
 </Project>
