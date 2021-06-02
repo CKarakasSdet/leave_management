@@ -12,24 +12,34 @@ namespace leave_management.Models
 
         public EmployeeVM RequestingEmployee { get; set; }
 
+
+        [Display(Name = "Employee Name")]
         public string RequestingEmployeeId { get; set; }
 
+        [Display(Name = "Start Date")]
         public DateTime StartDate { get; set; }
 
+        [Display(Name = "End Date")]
         public DateTime EndDate { get; set; }
 
         public LeaveTypeVM LeaveType { get; set; }
 
+
         public int LeaveTypeId { get; set; }
 
+
+
+        [Display(Name = "Date Requested")]
         public DateTime DateRequested { get; set; }
 
+        [Display(Name = "Date Actioned")]
         public DateTime DateActioned { get; set; }
 
         public bool? Approved { get; set; }
 
         public EmployeeVM ApprovedBy { get; set; }
 
+        [Display(Name = "Approved by")]
         public string ApprovedById { get; set; }
     }
 

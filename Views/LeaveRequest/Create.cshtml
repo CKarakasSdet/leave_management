@@ -12,7 +12,7 @@
 <hr />
 <div class="row">
 
-    <div class="col-md-8">
+    <div class="col-md-12">
 
         <form asp-action="Create">
 
@@ -20,7 +20,9 @@
 
             <div class="form-group">
                 <label asp-for="LeaveTypeId" class="control-label"></label>
+                @*<input asp-for="LeaveTypeId" class="form-control" />*@
                 @Html.DropDownListFor(q => q.LeaveTypeId, new SelectList(Model.LeaveTypes, "Value", "Text"), "Select Leave Type", new { @class = "form-control" })
+
                 <span asp-validation-for="LeaveTypeId" class="text-danger"></span>
             </div>
 
@@ -59,16 +61,14 @@
 </div>
 
 <div>
-    <a class="btn btn-secondary btn-block col-md-8"  asp-action="Index">Back to List</a>
+    <a class="btn btn-secondary btn-block col-md-12"  asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts
 {
     <script>
         $(function () {
-            $(".datepicker").datepicker(
-                dateFormat: "yy-mm-dd"
-            );
+            $(".datepicker").datepicker();
         });
     </script>
 }

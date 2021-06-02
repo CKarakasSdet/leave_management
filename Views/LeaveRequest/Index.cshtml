@@ -2,13 +2,13 @@
 @model AdminLeaveRequestViewVM
 
 @{
-    ViewData["Title"] = "Index"; 
+    ViewData["Title"] = "Index";
 }
 
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create" >Create New</a>
+    <a asp-action="Create">Create New</a>
 </p>
 
 <div class="row">
@@ -41,7 +41,7 @@
     <div class="col-md-3">
         <div class="card" style="width: 18rem;">
             <div class="card-body text-center">
-                <h1 class="card-title text-danger" >@Model.RejectedRequests</h1>
+                <h1 class="card-title text-danger">@Model.RejectedRequests</h1>
                 <h5 class="card-text">@Html.DisplayNameFor(model => model.RejectedRequests)</h5>
             </div>
         </div>
@@ -56,7 +56,7 @@
 
 <hr />
 
-<table  id ="tblData" class="table">
+<table id="tblData" class="table">
     <thead>
         <tr>
             <th>
@@ -77,50 +77,57 @@
             <th>
                 Approval Status
             </th>
+            <th>
+
+            </th>
         </tr>
     </thead>
     <tbody>
- @foreach (var item in Model.LeaveRequests)
+        @foreach (var item in Model.LeaveRequests)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.RequestingEmployee.Firstname) @Html.DisplayFor(modelItem => item.RequestingEmployee.Lastname)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LeaveType.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateRequested)
-            </td>
-            <td>
-                @if (item.Approved == true)
-                {
-                    <span class="badge badge-success">Approved</span>
-                }
-                else if (item.Approved == false)
-                {
-                    <span class="badge badge-danger">Rejected</span>
-                }
-                else
-                {
-                    <span class="badge badge-warning">Pending</span>
-                }
-            </td>
-            
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a>
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequestingEmployee.Firstname) @Html.DisplayFor(modelItem => item.RequestingEmployee.Lastname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LeaveType.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateRequested)
+                </td>
+                <td>
+                    @if (item.Approved == true)
+                    {
+                        <span class="badge badge-pill badge-success">Approved</span>
+                    }
+                    else if (item.Approved == false)
+                    {
+                        <span class="badge badge-pill badge-danger">Rejected</span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-pill badge-warning">Pending Approval</span>
+                    }
+                </td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
         }
     </tbody>
 
 </table>
 
+@section Scripts{
+    <script></script>
+
+}

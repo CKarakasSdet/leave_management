@@ -46,16 +46,17 @@ namespace leave_management.Controllers
             var leaveRequestsModel = _mapper.Map<List<LeaveRequestVM>>(leaveRequests);
             var model = new AdminLeaveRequestViewVM
             {
-                TotalRequests = leaveRequestsModel.Count ,
-                ApprovedRequests = leaveRequestsModel.Count(q =>q.Approved == true) , 
+                TotalRequests = leaveRequestsModel.Count,
+                ApprovedRequests = leaveRequestsModel.Count(q => q.Approved == true),
                 PendingRequests = leaveRequestsModel.Count(q => q.Approved == null),
                 RejectedRequests = leaveRequestsModel.Count(q => q.Approved == false),
-                LeaveRequests = leaveRequestsModel 
+                LeaveRequests = leaveRequestsModel
             };
 
             return View(model);
         }
 
+        // CREATE LEAVE REQUEST FOR EMPLOYEE 
 
         public ActionResult Create() {
 
@@ -75,18 +76,37 @@ namespace leave_management.Controllers
             return View(model); 
         }
 
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(CreateLeaveRequestVM model)
 
         {
             try
             {
+                var leaveTypes = _leaveTypeRepo.FindAll();
+                var leaveTypeItems = leaveTypes.Select(q => new SelectListItem
+                {
+                    Text = q.Name,
+                    Value = q.Id.ToString()
+                });
+                model.LeaveTypes = leaveTypeItems;
+
+                if (!ModelState.IsValid)
+                {
+                    return View(model); 
+                }
+
+                var employee = _userManager.GetUserAsync(User).Result; // retrieving current user.
+
+
+
                 return RedirectToAction(nameof(Index)); 
             }
             catch 
             {
-                return View(); 
+                return View(model); 
             }
         }
 
