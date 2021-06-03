@@ -158,5 +158,55 @@ namespace leave_management.Controllers
             }
         }
 
+        public IActionResult Details(int id) {
+
+            var leaveRequest = _leaveRequestRepo.FindById(id);
+            var model = _mapper.Map<LeaveRequestVM>(leaveRequest); 
+            return View(model); 
+        }
+
+        public IActionResult ApproveRequest(int id)
+        {
+            try
+            {
+                var leaveRequest = _leaveRequestRepo.FindById(id);
+                leaveRequest.Approved = true;
+                leaveRequest.ApprovedById = _userManager.GetUserAsync(User).Result.Id;
+                leaveRequest.DateActioned = DateTime.Now;
+                var isSucceded = _leaveRequestRepo.Update(leaveRequest);
+                return RedirectToAction(nameof(Index));
+
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.ToString()); 
+                return RedirectToAction(nameof(Index));
+            }
+             
+            
+        }
+
+        public IActionResult RejectRequest(int id)
+        {
+
+            try
+            {
+                var leaveRequest = _leaveRequestRepo.FindById(id);
+                leaveRequest.Approved = false;
+                leaveRequest.ApprovedById = _userManager.GetUserAsync(User).Result.Id;
+                leaveRequest.DateActioned = DateTime.Now;
+                var isSucceded = _leaveRequestRepo.Update(leaveRequest);
+                return RedirectToAction(nameof(Index));
+
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.ToString());
+                return RedirectToAction(nameof(Index));
+            }
+
+        }
+
+
     }
 }

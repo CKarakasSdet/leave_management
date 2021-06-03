@@ -13,15 +13,16 @@ namespace leave_management.Models
         public EmployeeVM RequestingEmployee { get; set; }
 
 
-        [Display(Name = "Employee Name")]
+        [Display(Name = "Employee Name:")]
         public string RequestingEmployeeId { get; set; }
 
-        [Display(Name = "Start Date")]
+        [Display(Name = "Start Date:")]
         public DateTime StartDate { get; set; }
 
-        [Display(Name = "End Date")]
+        [Display(Name = "End Date: ")]
         public DateTime EndDate { get; set; }
 
+        [Display(Name = "Leave Type: ")]
         public LeaveTypeVM LeaveType { get; set; }
 
         
@@ -29,17 +30,17 @@ namespace leave_management.Models
 
 
 
-        [Display(Name = "Date Requested")]
+        [Display(Name = "Date Requested: ")]
         public DateTime DateRequested { get; set; }
 
-        [Display(Name = "Date Actioned")]
+        [Display(Name = "Date Actioned: ")]
         public DateTime DateActioned { get; set; }
 
         public bool? Approved { get; set; }
 
         public EmployeeVM ApprovedBy { get; set; }
 
-        [Display(Name = "Approved by")]
+        [Display(Name = "Approved by: ")]
         public string ApprovedById { get; set; }
     }
 
@@ -63,17 +64,17 @@ namespace leave_management.Models
 
     public class CreateLeaveRequestVM
     {
-        [Display(Name = "Start Date")]
+        [Display(Name = "Start Date: ")]
         [Required]
         public string StartDate { get; set; }
 
-        [Display(Name = "End Date")]
+        [Display(Name = "End Date: ")]
         [Required]
         public string EndDate { get; set; }
 
         public IEnumerable<SelectListItem> LeaveTypes { get; set; }
 
-        [Display(Name = "Leave Type")]
+        [Display(Name = "Leave Type: ")]
         public int LeaveTypeId { get; set; }
     }
 
