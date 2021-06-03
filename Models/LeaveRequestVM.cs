@@ -78,5 +78,11 @@ namespace leave_management.Models
         public int LeaveTypeId { get; set; }
     }
 
+    public class EmployeeLeaveRequestViewVM
+    {
+        public List<LeaveAllocationVM> LeaveAllocations { get; set; }
+
+        public List<LeaveRequestVM> LeaveRequests { get; set; }
+    }
 
 }

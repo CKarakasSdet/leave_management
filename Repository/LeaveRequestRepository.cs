@@ -52,7 +52,13 @@ namespace leave_management.Repository
 
         public ICollection<LeaveRequest> GetRequestsByEmployee(string employeeid)
         {
-            throw new NotImplementedException();
+            var leaveRequests = _db.LeaveRequests
+                    .Include(q => q.RequestingEmployee)
+                    .Include(q => q.ApprovedBy)
+                    .Include(q => q.LeaveType)
+                    .Where(q => q.RequestingEmployeeId == employeeid)
+                    .ToList();
+            return leaveRequests;
         }
 
         public bool IsPresent(int id)

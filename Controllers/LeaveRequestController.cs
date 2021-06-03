@@ -149,7 +149,7 @@ namespace leave_management.Controllers
                     return View(model);
                 }
 
-                return RedirectToAction(nameof(Index), "Home"); 
+                return RedirectToAction( "MyLeave"); 
             }
             catch (Exception exc)
             {
@@ -217,6 +217,27 @@ namespace leave_management.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
+        }
+
+        public IActionResult MyLeave()
+        {
+            var employee = _userManager.GetUserAsync(User).Result;
+            var employeeid = employee.Id;
+            var employeeAllocations = _leaveAllocationRepo.GetLeaveAllocationsByEmployee(employeeid);
+            var employeeRequests = _leaveRequestRepo.GetRequestsByEmployee(employeeid);
+
+            var employeeAllocationsModel = _mapper.Map<List<LeaveAllocationVM>>(employeeAllocations);
+            var employeeRequestsModel = _mapper.Map<List<LeaveRequestVM>>(employeeRequests); 
+
+            var model = new EmployeeLeaveRequestViewVM
+            {
+
+                LeaveAllocations = employeeAllocationsModel,
+                LeaveRequests = employeeRequestsModel
+
+            }; 
+
+            return View(model); 
         }
 
 
