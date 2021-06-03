@@ -64,12 +64,12 @@ namespace leave_management.Repository
                     .ToList(); 
         }
 
-        public LeaveAllocation GetLeaveAllocationByEmployeeAndType(string id, int leavetypeid)
+        public LeaveAllocation GetLeaveAllocationByEmployeeAndType(string employeeid, int leavetypeid)
         {
             var period = DateTime.Now.Year;
 
             return FindAll().
-                    FirstOrDefault(q => q.EmployeeId == id && q.Period == period && q.LeaveTypeId == leavetypeid); 
+                    FirstOrDefault(q => q.EmployeeId == employeeid && q.Period == period && q.LeaveTypeId == leavetypeid); 
         }
 
         public bool IsPresent(int id)

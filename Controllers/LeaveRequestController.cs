@@ -170,11 +170,21 @@ namespace leave_management.Controllers
             try
             {
                 var leaveRequest = _leaveRequestRepo.FindById(id);
+                var allocation = _leaveAllocationRepo.GetLeaveAllocationByEmployeeAndType(leaveRequest.RequestingEmployeeId, leaveRequest.LeaveTypeId);
+
+                int daysRequested = (int)(leaveRequest.EndDate - leaveRequest.StartDate).TotalDays;
+
+                allocation.NumberOfDays -= daysRequested;  
+
                 leaveRequest.Approved = true;
                 leaveRequest.ApprovedById = _userManager.GetUserAsync(User).Result.Id;
                 leaveRequest.DateActioned = DateTime.Now;
-                var isSucceded = _leaveRequestRepo.Update(leaveRequest);
+
+                _leaveRequestRepo.Update(leaveRequest);
+                _leaveAllocationRepo.Update(allocation);
+
                 return RedirectToAction(nameof(Index));
+
 
             }
             catch (Exception ex)
@@ -195,7 +205,9 @@ namespace leave_management.Controllers
                 leaveRequest.Approved = false;
                 leaveRequest.ApprovedById = _userManager.GetUserAsync(User).Result.Id;
                 leaveRequest.DateActioned = DateTime.Now;
-                var isSucceded = _leaveRequestRepo.Update(leaveRequest);
+
+                _leaveRequestRepo.Update(leaveRequest);
+
                 return RedirectToAction(nameof(Index));
 
             }
