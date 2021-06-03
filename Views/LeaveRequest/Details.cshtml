@@ -1,14 +1,59 @@
-﻿@model leave_management.Models.LeaveRequestVM 
+﻿@model leave_management.Models.LeaveRequestVM
 @{
-    ViewData["Title"] = "Details"; 
+    ViewData["Title"] = "Details";
 }
 
 
 
-<h1>Review @Model.RequestingEmployee.Firstname @Model.RequestingEmployee.Lastname 's Leave Request </h1>
-<h4>
-    
-</h4>
+@if (Model.Approved == null)
+{
+    <div class="alert alert-warning" role="alert">
+        <h4 class="alert-heading">Pending Approval</h4>
+        <p>
+            <strong>@Html.DisplayNameFor(model => model.RequestingEmployeeId):</strong> @Model.RequestingEmployee.Firstname @Model.RequestingEmployee.Lastname
+        </p>
+        <hr />
+        <p>
+            @Html.DisplayNameFor(model => model.DateRequested) @Html.DisplayFor(model => model.DateRequested)
+        </p>
+    </div>
+
+}
+
+else if (Model.Approved == true)
+{
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Approved by @Model.ApprovedBy.Firstname @Model.ApprovedBy.Lastname</h4>
+        <p>
+            <strong>@Html.DisplayNameFor(model => model.RequestingEmployeeId):</strong> @Model.RequestingEmployee.Firstname @Model.RequestingEmployee.Lastname
+        </p>
+        <hr />
+        <p>
+            @Html.DisplayNameFor(model => model.DateRequested) @Html.DisplayFor(model => model.DateRequested)
+        </p>
+    </div>
+
+}
+
+else 
+{
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Rejected by @Model.ApprovedBy.Firstname @Model.ApprovedBy.Lastname</h4>
+        <p>
+            <strong>@Html.DisplayNameFor(model => model.RequestingEmployeeId):</strong> @Model.RequestingEmployee.Firstname @Model.RequestingEmployee.Lastname
+        </p>
+        <hr />
+        <p>
+            @Html.DisplayNameFor(model => model.DateRequested) @Html.DisplayFor(model => model.DateRequested)
+        </p>
+    </div>
+
+}
+
+
+
+
+
 
 <div>
     <hr />
@@ -49,14 +94,21 @@
 </div>
 
 <div>
-    <a class="btn btn-success" asp-action="ApproveRequest" asp-route-id="@Model.Id">
-        <i class="fa fa-check"></i>Approve
-    </a>
-    <a class="btn btn-danger" asp-action="RejectRequest" asp-route-id="@Model.Id">
-        <i class="fa fa-remove"></i>Reject
-    </a>
+
+    @if (Model.Approved == null)
+    {
+        <a class="btn btn-success" asp-action="ApproveRequest" asp-route-id="@Model.Id">
+            <i class="fa fa-check"></i>Approve
+        </a>
+        <a class="btn btn-danger" asp-action="RejectRequest" asp-route-id="@Model.Id">
+            <i class="fa fa-remove"></i>Reject
+        </a>
+
+    }
+
 
     <a class="btn btn-outline-secondary" asp-action="Index">
-        <i class="fa fa-arrow-left"></i>Back to List</a>
+        <i class="fa fa-arrow-left"></i>Back to List
+    </a>
 </div>
 
