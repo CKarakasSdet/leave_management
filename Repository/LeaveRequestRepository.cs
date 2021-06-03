@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using leave_management.Contracts;
 using leave_management.Data;
 using Microsoft.EntityFrameworkCore;
@@ -62,8 +63,9 @@ namespace leave_management.Repository
 
         public bool Save()
         {
+            Thread.Sleep(2000);
             var changes = _db.SaveChanges();
-
+            Thread.Sleep(1000);
             return changes > 0; 
         }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using leave_management.Contracts;
 using leave_management.Data;
 using Microsoft.EntityFrameworkCore;
@@ -63,6 +64,14 @@ namespace leave_management.Repository
                     .ToList(); 
         }
 
+        public LeaveAllocation GetLeaveAllocationByEmployeeAndType(string id, int leavetypeid)
+        {
+            var period = DateTime.Now.Year;
+
+            return FindAll().
+                    FirstOrDefault(q => q.EmployeeId == id && q.Period == period && q.LeaveTypeId == leavetypeid); 
+        }
+
         public bool IsPresent(int id)
         {
             var present = _db.LeaveAllocations.Any(q => q.Id == id);
@@ -72,6 +81,8 @@ namespace leave_management.Repository
         public bool Save()
         {
            var changes =  _db.SaveChanges();
+            Thread.Sleep(2000);
+
             return changes > 0; 
         }
 
