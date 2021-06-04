@@ -41,7 +41,7 @@ namespace leave_management.Models
         [Display(Name = "Approved by: ")]
         public string ApprovedById { get; set; }
 
-        [Display(Name = "Employee Comments")]
+        [Display(Name = "Employee Comments: ")]
         [MaxLength(250)]
         public string RequestComment { get; set; }
     }
