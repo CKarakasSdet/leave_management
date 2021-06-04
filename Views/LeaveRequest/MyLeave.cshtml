@@ -62,21 +62,23 @@
             <td>
                 @Html.DisplayFor(modelItem => item.DateRequested)
             </td>
+           
+
             <td>
-                @Html.DisplayFor(modelItem => item.Approved)
+                @if (item.Approved == true)
+                {
+                    <span class="badge badge-success"> Approved </span>
+                }
+                else if (item.Approved == false)
+                {
+                    <span class="badge badge-danger"> Rejected </span>
+                }
+                else
+                {
+                    <span class="badge badge-warning"> Pending Approval </span>
+                }
+
             </td>
-            @if (item.Approved == true)
-            {
-                <span class="badge badge-success"> Approved </span>
-            }
-            else if (item.Approved == false)
-            {
-                <span class="badge badge-danger"> Rejected </span>
-            }
-            else
-            {
-                <span class="badge badge-warning"> Pending Approval </span>
-            }
 
             <td>
             @if (item.StartDate > DateTime.Now || item.Approved == true )

@@ -14,7 +14,7 @@
         "outputPath": "/Users/cahitkarakas/CSarpProjects/leave-management/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/cahitkarakas/.nuget/NuGet/NuGet.Config"
+          "/Users/cahitkarakas/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
