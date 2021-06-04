@@ -38,6 +38,8 @@ namespace leave_management.Data
 
         public string ApprovedById { get; set; }
 
+        public string RequestComment { get; set; }
+
 
     }
 }

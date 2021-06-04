@@ -137,7 +137,8 @@ namespace leave_management.Controllers
                     Approved = null,
                     DateRequested = DateTime.Now,
                     DateActioned = DateTime.Now,
-                    LeaveTypeId = model.LeaveTypeId
+                    LeaveTypeId = model.LeaveTypeId,
+                    RequestComment = model.RequestComment
                 };
 
                 var leaveRequest = _mapper.Map<LeaveRequest>(leaveRequestModel);
@@ -219,12 +220,21 @@ namespace leave_management.Controllers
 
         }
 
+        public IActionResult CancelRequest(int id)
+        {
+            // TODO: will complete cancel request process 
+            //var leaveRequest = _leaveRequestRepo.FindById(id);
+            //leaveRequest.Cancelled = true;
+            //_leaveRequestRepo.Update(leaveRequest);
+            return RedirectToAction("MyLeave"); 
+        }
+
         public IActionResult MyLeave()
         {
             var employee = _userManager.GetUserAsync(User).Result;
             var employeeid = employee.Id;
             var employeeAllocations = _leaveAllocationRepo.GetLeaveAllocationsByEmployee(employeeid);
-            var employeeRequests = _leaveRequestRepo.GetRequestsByEmployee(employeeid);
+            var employeeRequests = _leaveRequestRepo.GetLeaveRequestsByEmployee(employeeid);
 
             var employeeAllocationsModel = _mapper.Map<List<LeaveAllocationVM>>(employeeAllocations);
             var employeeRequestsModel = _mapper.Map<List<LeaveRequestVM>>(employeeRequests); 

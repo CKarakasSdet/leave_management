@@ -28,8 +28,6 @@ namespace leave_management.Models
         
         public int LeaveTypeId { get; set; }
 
-
-
         [Display(Name = "Date Requested: ")]
         public DateTime DateRequested { get; set; }
 
@@ -42,6 +40,10 @@ namespace leave_management.Models
 
         [Display(Name = "Approved by: ")]
         public string ApprovedById { get; set; }
+
+        [Display(Name = "Employee Comments")]
+        [MaxLength(250)]
+        public string RequestComment { get; set; }
     }
 
     public class AdminLeaveRequestViewVM
@@ -76,6 +78,12 @@ namespace leave_management.Models
 
         [Display(Name = "Leave Type: ")]
         public int LeaveTypeId { get; set; }
+
+        [Display(Name = "Employee Comments")]
+        [MaxLength(250)]
+        public string RequestComment { get; set; }
+
+
     }
 
     public class EmployeeLeaveRequestViewVM

@@ -50,7 +50,7 @@ namespace leave_management.Repository
 
         }
 
-        public ICollection<LeaveRequest> GetRequestsByEmployee(string employeeid)
+        public ICollection<LeaveRequest> GetLeaveRequestsByEmployee(string employeeid)
         {
             var leaveRequests = _db.LeaveRequests
                     .Include(q => q.RequestingEmployee)
