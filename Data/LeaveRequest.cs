@@ -40,6 +40,8 @@ namespace leave_management.Data
 
         public string RequestComment { get; set; }
 
+        public string FeedbackForRequestComment { get; set; }
+
 
     }
 }
