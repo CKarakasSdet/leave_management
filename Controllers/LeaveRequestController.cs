@@ -13,8 +13,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace leave_management.Controllers
 {
     [Authorize]
@@ -138,7 +136,8 @@ namespace leave_management.Controllers
                     DateRequested = DateTime.Now,
                     DateActioned = DateTime.Now,
                     LeaveTypeId = model.LeaveTypeId,
-                    RequestComment = model.RequestComment
+                    RequestComment = model.RequestComment,
+                    FeedbackForRequestComment = model.FeedbackForRequestComment
                 };
 
                 var leaveRequest = _mapper.Map<LeaveRequest>(leaveRequestModel);
@@ -166,13 +165,19 @@ namespace leave_management.Controllers
             return View(model); 
         }
 
+
+        
+      
+
         public IActionResult ApproveRequest(int id)
         {
             try
             {
+                
+
                 var leaveRequest = _leaveRequestRepo.FindById(id);
                 var allocation = _leaveAllocationRepo.GetLeaveAllocationByEmployeeAndType(leaveRequest.RequestingEmployeeId, leaveRequest.LeaveTypeId);
-
+                
                 int daysRequested = (int)(leaveRequest.EndDate - leaveRequest.StartDate).TotalDays;
 
                 allocation.NumberOfDays -= daysRequested;  
@@ -180,6 +185,8 @@ namespace leave_management.Controllers
                 leaveRequest.Approved = true;
                 leaveRequest.ApprovedById = _userManager.GetUserAsync(User).Result.Id;
                 leaveRequest.DateActioned = DateTime.Now;
+                
+                
 
                 _leaveRequestRepo.Update(leaveRequest);
                 _leaveAllocationRepo.Update(allocation);
@@ -223,9 +230,9 @@ namespace leave_management.Controllers
         public IActionResult CancelRequest(int id)
         {
             // TODO: will complete cancel request process 
-            //var leaveRequest = _leaveRequestRepo.FindById(id);
-            //leaveRequest.Cancelled = true;
-            //_leaveRequestRepo.Update(leaveRequest);
+            var leaveRequest = _leaveRequestRepo.FindById(id);
+            leaveRequest.Cancelled = true;
+            _leaveRequestRepo.Update(leaveRequest);
             return RedirectToAction("MyLeave"); 
         }
 
@@ -243,8 +250,9 @@ namespace leave_management.Controllers
             {
 
                 LeaveAllocations = employeeAllocationsModel,
-                LeaveRequests = employeeRequestsModel
-
+                LeaveRequests = employeeRequestsModel,
+               
+               
             }; 
 
             return View(model); 

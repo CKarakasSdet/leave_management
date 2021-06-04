@@ -44,6 +44,13 @@ namespace leave_management.Models
         [Display(Name = "Employee Comments: ")]
         [MaxLength(250)]
         public string RequestComment { get; set; }
+
+        [Display(Name = "Approver Comments: ")]
+        [MaxLength(250)]
+        public string FeedbackForRequestComment { get; set; }
+
+        public bool Cancelled { get; set; }
+
     }
 
     public class AdminLeaveRequestViewVM
@@ -61,6 +68,8 @@ namespace leave_management.Models
         public int RejectedRequests { get; set; }
 
         public List<LeaveRequestVM> LeaveRequests { get; set; }
+
+        
 
     }
 
@@ -83,6 +92,9 @@ namespace leave_management.Models
         [MaxLength(250)]
         public string RequestComment { get; set; }
 
+        [Display(Name = "Employee Comments: ")]
+        [MaxLength(250)]
+        public string FeedbackForRequestComment { get; set; }
 
     }
 

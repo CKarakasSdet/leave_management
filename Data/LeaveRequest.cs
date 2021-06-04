@@ -42,6 +42,6 @@ namespace leave_management.Data
 
         public string FeedbackForRequestComment { get; set; }
 
-
+        public bool Cancelled { get; set; }
     }
 }

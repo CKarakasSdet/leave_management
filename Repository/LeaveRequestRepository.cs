@@ -45,6 +45,7 @@ namespace leave_management.Repository
                                 .Include(q => q.RequestingEmployee)
                                 .Include(q => q.ApprovedBy)
                                 .Include(q => q.LeaveType)
+                                
                                 .FirstOrDefault(q => q.Id == id);
             return LeaveRequest; 
 

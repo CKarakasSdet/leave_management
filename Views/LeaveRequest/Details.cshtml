@@ -94,6 +94,22 @@ else
             @Html.DisplayFor(model => model.RequestComment)
         </dd>
 
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FeedbackForRequestComment)
+        </dt>
+        <dd class="col-sm-10">
+            @if (Model.Approved == null) { 
+            <div>
+                <textarea asp-for="FeedbackForRequestComment" class="form-control"></textarea>
+                <span asp-validation-for="FeedbackForRequestComment" class="text-danger"></span>
+            </div>
+            } else {
+
+
+            @Html.DisplayFor(model => model.FeedbackForRequestComment)
+            }
+        </dd>
+
 
     </dl>
 
